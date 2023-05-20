@@ -14,6 +14,7 @@ public class WikipediaSearchResultsPage extends BasePage {
     private By messageForMatchingAPageNameText = By.xpath("//*[@id='mw-content-text']/div[3]/div[1]/p/b");
     private By messageForNotMatchingAPageNameText = By.cssSelector("#mw-content-text > div.searchresults.mw-searchresults-has-iw > div.mw-search-results-info > p > i");
     private By resultTotalCountLabel = By.xpath("//*[@id='mw-search-top-table']/div[2]/strong[2]");
+    private By messageForNoResultFoundText = By.className("mw-search-nonefound");
 
 
 
@@ -42,10 +43,17 @@ public class WikipediaSearchResultsPage extends BasePage {
         return searchField.getText();
     }
 
+    public String getMessageForNoResultFound(){
+        WebElement searchField = driver.findElement(messageForNoResultFoundText);
+        return searchField.getText();
+    }
+
     public int getTotalResults(){
-        WebElement resultTotal = driver.findElement(resultTotalCountLabel);
-        int number = Integer.valueOf(resultTotal.getText().replaceAll(",",""));
-        return number;
+        if(driver.findElements(resultTotalCountLabel).size() > 0) {
+            int number = Integer.valueOf(driver.findElement(resultTotalCountLabel).getText().replaceAll(",",""));
+            return number;
+        }
+        else return 0;
     }
 
     public void validateSearchResultMatchingAPageName(String searchText, String actualMessage, int searchResultsCount){
@@ -62,6 +70,14 @@ public class WikipediaSearchResultsPage extends BasePage {
         String expectedMessage = String.format("The page \"%s\" does not exist. You can create a draft and submit it for review, but consider checking the search results below to see whether the topic is already covered.",searchText);
         Assert.assertEquals(actualMessage,expectedMessage);
         Assert.assertTrue(searchResultsCount > 0);
+    }
+
+    public void validateNoResultFound(String searchText, String actualMessage, int searchResultsCount){
+        String searchTextOnSearchResultPage = getSearchText();
+        Assert.assertEquals(searchTextOnSearchResultPage,searchText);
+        String expectedMessage = "There were no results matching the query.";
+        Assert.assertEquals(actualMessage,expectedMessage);
+        Assert.assertTrue(searchResultsCount == 0);
     }
 
 }

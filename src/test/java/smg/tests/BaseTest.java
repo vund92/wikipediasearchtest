@@ -59,7 +59,6 @@ public class BaseTest {
         switch (name){
             case "firefox": {
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                //firefoxOptions.setHeadless(true);
                 return new FirefoxDriver(firefoxOptions);
             }
             case "safari":{
@@ -67,7 +66,6 @@ public class BaseTest {
             }
             default: {
                 ChromeOptions chromeOptions = new ChromeOptions();
-                //chromeOptions.setHeadless(true);
                 return new ChromeDriver(chromeOptions);
             }
         }
