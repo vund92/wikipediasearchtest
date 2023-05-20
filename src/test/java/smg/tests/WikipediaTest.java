@@ -19,7 +19,7 @@ public class WikipediaTest extends BaseTest {
         wikipediaMainPage.open();
 
     }
-    /** Todo:
+    /** Todo: Automating Test Case 26 in Test Design
      *      Scenario: Verify search results of a search matching with a page name on Wikipedia
      *      Given I access to https://en.wikipedia.org/wiki/Main_Page
      *      When I fill <Software Testing> to "Search Wikipedia" text box
@@ -27,7 +27,7 @@ public class WikipediaTest extends BaseTest {
      *      Then I verify the search results on Search Results Page
      */
 
-    /** Todo:
+    /** Todo: Automating Test Case 27 in Test Design
      *      Scenario: Verify search results of a search not matching with any page name on Wikipedia
      *      Given I access https://en.wikipedia.org/wiki/Main_Page
      *      When I fill <Software Testing 123> to "Search Wikipedia" text box
@@ -35,7 +35,7 @@ public class WikipediaTest extends BaseTest {
      *      Then I verify the search results on Search Results Page
      * */
 
-    /** Todo:
+    /** Todo: Automating Test Case 28 in Test Design
      *      Scenario: Verify search results with no result found
      *      Given I access https://en.wikipedia.org/wiki/Main_Page
      *      When I fill <thisisfornoresultfoundsearch> to "Search Wikipedia" text box
