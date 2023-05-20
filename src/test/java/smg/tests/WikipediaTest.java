@@ -27,7 +27,7 @@ public class WikipediaTest extends BaseTest {
      *          And I select 'Search for pages containing Software Testing' option
      *          Then I verify the search results on Search Results Page
      *              Examples:
-     *              |       Case           | searchText 				  |
+     *              |       Case           |        searchText 			  |
      *              | MatchingAPageName    | Software Testing 			  |
      *              | NotMatchingAPageName | Software Testing 123		  |
      *              | NoResultFound		   | thisisfornoresultfoundsearch |
