@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="SMG Interview Test: Part 3 - UI Automation Test">
-    <test name="Wikipedia Search Test">
+    <test name="Wikipedia Search Test on Chrome Browser">
+        <parameter name="browser"  value="chrome"/>
+        <parameter name="dataset"  value="1"/>
         <classes>
             <class name="smg.tests.WikipediaTest"/>
         </classes>
     </test>
+<!--    <test name="Wikipedia Search Test on Firefox Browser">-->
+<!--        <parameter name="browser"  value="firefox"/>-->
+<!--        <parameter name="dataset"  value="2"/>-->
+<!--        <classes>-->
+<!--            <class name="smg.tests.WikipediaTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
