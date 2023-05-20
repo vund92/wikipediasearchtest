@@ -11,8 +11,8 @@ import java.time.Duration;
 
 public class WikipediaSearchResultsPage extends BasePage {
     private String searchTextBox = "$('#ooui-php-1')";
-    private By messageForMatchingAPageName = By.xpath("//*[@id='mw-content-text']/div[3]/div[1]/p/b");
-    private By messageForNotMatchingAPageName = By.xpath("//*[@id='mw-content-text']/div[3]/div[1]/p/i");
+    private By messageForMatchingAPageNameText = By.xpath("//*[@id='mw-content-text']/div[3]/div[1]/p/b");
+    private By messageForNotMatchingAPageNameText = By.cssSelector("#mw-content-text > div.searchresults.mw-searchresults-has-iw > div.mw-search-results-info > p > i");
     private By resultTotalCountLabel = By.xpath("//*[@id='mw-search-top-table']/div[2]/strong[2]");
 
 
@@ -33,12 +33,12 @@ public class WikipediaSearchResultsPage extends BasePage {
     }
 
     public String getMessageForMatchingAPageName(){
-        WebElement searchField = driver.findElement(messageForMatchingAPageName);
+        WebElement searchField = driver.findElement(messageForMatchingAPageNameText);
         return searchField.getText();
     }
 
     public String getMessageForNotMatchingAPageName(){
-        WebElement searchField = driver.findElement(messageForNotMatchingAPageName);
+        WebElement searchField = driver.findElement(messageForNotMatchingAPageNameText);
         return searchField.getText();
     }
 
